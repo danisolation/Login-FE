@@ -1,6 +1,6 @@
 app.controller("infoController", function ($scope, $http, $state, $cookies) {
   $scope.submit = function () {
-    const regex = "/^[0-9]+$/";
+    const regex = /^[0-9]{10,}$/;
     if ($scope.fullName == "") {
       Toastify({
         text: "Please type your full name!",
@@ -21,7 +21,7 @@ app.controller("infoController", function ($scope, $http, $state, $cookies) {
       }).showToast();
       console.log("Please retype your phone number!");
       return;
-    } else if (regex.test($scope.phone) == false) {
+    } else if (!regex.test($scope.phone)) {
       Toastify({
         text: "Please type number in field phone number!",
         duration: 3000,
