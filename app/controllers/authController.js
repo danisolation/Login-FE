@@ -29,13 +29,14 @@ app.controller("AuthController", function ($scope, $http, $state, $cookies) {
     if ($scope.isLogin) {
       if (!$scope.email) {
         Toastify({
-          text: "Please type your email!",
+          text: "Wrong email!",
           duration: 3000,
           position: "center",
           backgroundColor: "#FF0000",
           close: true,
         }).showToast();
-        console.error("Please type your email!");
+        console.error("Wrong email!");
+        console.error($scope.email);
         return;
       } else if (!$scope.password) {
         Toastify({
@@ -80,7 +81,7 @@ app.controller("AuthController", function ($scope, $http, $state, $cookies) {
     } else {
       if (!$scope.email) {
         Toastify({
-          text: "Please type your email!",
+          text: "Wrong email!",
           duration: 3000,
           position: "center",
           backgroundColor: "#FF0000",

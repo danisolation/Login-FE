@@ -1,5 +1,6 @@
 app.controller("infoController", function ($scope, $http, $state, $cookies) {
   $scope.submit = function () {
+    const regex = "/^[0-9]+$/";
     if ($scope.fullName == "") {
       Toastify({
         text: "Please type your full name!",
@@ -20,6 +21,16 @@ app.controller("infoController", function ($scope, $http, $state, $cookies) {
       }).showToast();
       console.log("Please retype your phone number!");
       return;
+    } else if (regex.test($scope.phone) == false) {
+      Toastify({
+        text: "Please type number in field phone number!",
+        duration: 3000,
+        position: "center",
+        backgroundColor: "#FF0000",
+        close: true,
+      }).showToast();
+      console.log("Please type number in field phone number!");
+      return;
     } else if ($scope.birth == "") {
       Toastify({
         text: "Please type your birth!",
@@ -39,11 +50,15 @@ app.controller("infoController", function ($scope, $http, $state, $cookies) {
       birth: $scope.birth,
     };
     $http
-      .put("https://loginbe.netlify.app/.netlify/functions/api/updateUser", data, {
-        headers: {
-          Authorization: "Bearer " + $cookies.get("accessToken"),
-        },
-      })
+      .put(
+        "https://loginbe.netlify.app/.netlify/functions/api/updateUser",
+        data,
+        {
+          headers: {
+            Authorization: "Bearer " + $cookies.get("accessToken"),
+          },
+        }
+      )
       .then(function (response) {
         Toastify({
           text: "Successful information entry!",
