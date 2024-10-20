@@ -37,3 +37,14 @@ app.config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     })
     ;
 });
+
+app.run(function($transitions, $state, $cookies) {
+  $transitions.onStart({}, function(transition) {
+    const accessToken = $cookies.get('accessToken');
+    const restrictedStates = ['home', 'info', 'resetPassword', 'otp']; 
+
+    if (restrictedStates.includes(transition.to().name) && !accessToken) {
+      return $state.go('auth');
+    }
+  });
+});

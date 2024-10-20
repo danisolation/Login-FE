@@ -37,6 +37,7 @@ app.controller("HomeController", function ($scope, $cookies, $state, $http) {
         }
       )
       .then(function (response) {
+        $cookies.remove('accessToken');
         Toastify({
           text: "Successful logout!",
           duration: 3000,
