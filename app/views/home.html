@@ -1,0 +1,28 @@
+<div class="home" ng-class="{'slide-left' : isLogOut}">
+  <h1 class="title bounce">ABOUT THIS WEBSITE</h1>
+  <div class="tech-stack">
+    <div class="tech-stack_item" ng-repeat="item in techStack">
+      <div
+        class="tech-avt"
+        ng-style="{'background-image' : 'url(' + item.img + ')'}"
+      ></div>
+      <div class="tech-name">{{item.name}}</div>
+    </div>
+  </div>
+  <h1 class="title bounce">VIDEO DEMO</h1>
+  <div class="video">
+    <iframe
+      width="912"
+      height="513"
+      src="https://www.youtube.com/embed/LPgzgI-aHTc"
+      title="Voi Bản Đôn tiếp tục tạo hit với tiết mục Rời Bỏ | The Masked Singer Vietnam 2023 [LiveStage]"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </div>
+  <div class="logout">
+    <div class="logout-icon" ng-click="logOut()"></div>
+  </div>
+</div>

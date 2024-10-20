@@ -1,0 +1,75 @@
+<div class="auth-form" ng-app="myApp" ng-controller="AuthController">
+  <div
+    class="cover"
+    ng-class="{'slide-right': (!isLogin && !isFirstAccess), 'slide-left': (isLogin && !isFirstAccess)}"
+  >
+    <div class="cover-title">
+      {{isLogin ? 'Why just lurk when you can join?' : 'You again? Great! Let’s
+      log you in'}}
+    </div>
+    <button class="btn" ng-click="changeForm()">
+      {{isLogin ? 'Sign up now!' : 'Login now!'}}
+    </button>
+  </div>
+  <div
+    class="form"
+    ng-class="{'slide-left': (!isLogin && !isFirstAccess), 'slide-right': (isLogin && !isFirstAccess)}"
+  >
+    <h1>{{isLogin ? 'Login' : 'Sign Up'}}</h1>
+    <form action="" class="">
+      <div class="form-group">
+        <label for="">Email</label>
+        <input
+          type="email"
+          ng-model="email"
+          placeholder="johndoe@example.com"
+        />
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+
+        <input
+          type="{{ showPassword ? 'text' : 'password' }}"
+          ng-model="password"
+          placeholder="Enter your password"
+        />
+
+        <div
+          ng-class="{'eyes' : showPassword, 'eyes-slash' : !showPassword}"
+          ng-click="togglePasswordVisibility()"
+        ></div>
+      </div>
+      <div class="form-group" ng-show="!isLogin">
+        <label for="">Re-type Password</label>
+        <input
+          type="{{ showReTypePassword ? 'text' : 'password' }}"
+          ng-model="reTypePassword"
+          placeholder="Re-type your password"
+        />
+
+        <div
+          ng-class="{'eyes' : showReTypePassword, 'eyes-slash' : !showReTypePassword}"
+          ng-click="toggleReTypePasswordVisibility()"
+        ></div>
+      </div>
+      <div class="more-options" ng-if="isLogin">
+        <div class="remember-me">
+          <!-- <input type="checkbox" ng-model="checkbox" />
+          <span>Remember me!</span> -->
+        </div>
+        <div class="forgot" ng-click="forgot()">Forgot password?</div>
+      </div>
+      <div class="btn-container">
+        <button class="btn" ng-click="submit()">
+          {{isLogin ? 'Login' : 'Sign Up'}}
+        </button>
+      </div>
+      <div class="form-footer">
+        {{isLogin ? "Don't have an account?" : "Already have an account?"}}
+        <span class="" ng-click="changeForm()">
+          {{isLogin ? 'Sign up!' : 'Login!'}}
+        </span>
+      </div>
+    </form>
+  </div>
+</div>

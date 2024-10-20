@@ -1,0 +1,59 @@
+<div class="auth-form" ng-app="myApp" ng-controller="OTPController">
+  <div class="cover">
+    <div class="cover-title">Please check your email!</div>
+
+    <button class="btn">Reset OTP</button>
+  </div>
+  <div class="form">
+    <h1>Enter OTP</h1>
+    <form action="" class="">
+      <div class="otp-inputs">
+        <input
+          type="text"
+          maxlength="1"
+          ng-model="otp[0]"
+          ng-change="moveToNext(0)"
+          class="otp-input"
+        />
+        <input
+          type="text"
+          maxlength="1"
+          ng-model="otp[1]"
+          ng-change="moveToNext(1)"
+          class="otp-input"
+        />
+        <input
+          type="text"
+          maxlength="1"
+          ng-model="otp[2]"
+          ng-change="moveToNext(2)"
+          class="otp-input"
+        />
+        <input
+          type="text"
+          maxlength="1"
+          ng-model="otp[3]"
+          ng-change="moveToNext(3)"
+          class="otp-input"
+        />
+        <input
+          type="text"
+          maxlength="1"
+          ng-model="otp[4]"
+          ng-change="moveToNext(4)"
+          class="otp-input"
+        />
+        <input
+          type="text"
+          maxlength="1"
+          ng-model="otp[5]"
+          ng-change="moveToNext(5)"
+          class="otp-input"
+        />
+      </div>
+      <div class="btn-container">
+        <button class="btn" ng-click="submit()">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

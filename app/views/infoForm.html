@@ -1,0 +1,41 @@
+<div class="auth-form" ng-app="myApp" ng-controller="infoController">
+  <div class="cover">
+    <div class="cover-title">Please enter your infomation!</div>
+  </div>
+  <div class="form" ng-class="slide-right">
+    <h1>Infomation</h1>
+    <form action="" class="">
+      <div class="form-group">
+        <label>Full Name</label>
+
+        <input
+          type="text"
+          ng-model="fullName"
+          placeholder="Enter your full name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="">Phone Number</label>
+        <input
+          type="text"
+          ng-model="phone"
+          placeholder="Enter your phone number"
+        />
+      </div>
+      <div class="form-group">
+        <label for="">Birth</label>
+        <input type="date" ng-model="birth" placeholder="Enter your birth" />
+      </div>
+
+      <div class="btn-container">
+        <button class="btn" ng-click="submit()">Confirm</button>
+      </div>
+      <!-- <div class="form-footer">
+                Remember your password?
+                <span class="" ng-click="changeForm()">
+                    Login
+                </span>
+            </div> -->
+    </form>
+  </div>
+</div>
